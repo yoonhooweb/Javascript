@@ -22,7 +22,7 @@ const c = kg / (tall * tall);
 
 console.log(c);
 
-let score = 81;
+let score = "30";
 
 if (score >= 90) {
     console.log(`A학점입니다.`);
@@ -35,3 +35,58 @@ if (score >= 90) {
 } else {
     console.log("낙점");
 }
+
+switch (score) {
+    case "1":
+        console.log("a");
+        break;
+    case "2":
+        console.log("b");
+        break;
+    case "30":
+        console.log("c");
+        break;
+    case "20":
+        console.log("d");
+        break;
+    default:
+        console.log("test");
+}
+
+let num = 1;
+
+while (num < 10) {
+    console.log(num);
+    num++;
+}
+
+/* for (let i = 2; i <= 9; i++) {
+    console.log(`${i}단 입니다.`);
+    for (let j = 1; j <= 9; j++) {
+        console.log(`${i + "x" + j}= ${i * j}`);
+    }
+} */
+
+const arr = [10, 20, 30];
+const tasks = {
+    name: "철수",
+    age: 20,
+};
+
+for (let task in tasks) {
+    console.log(tasks[task]);
+}
+
+for (let task of tasks) {
+    console.log(tasks[task]);
+}
+
+function sum(num1, ...args) {
+    console.log(num1);
+    console.log(args);
+    return args;
+}
+
+sum(10, 20, 30);
+
+console.log();
