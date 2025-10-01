@@ -89,4 +89,8 @@ function sum(num1, ...args) {
 
 sum(10, 20, 30);
 
-console.log();
+function ex2(num) {
+    return num * num;
+}
+
+console.log(ex2(5));
