@@ -157,15 +157,34 @@ new Promise(function (resolve, reject) {
     // 1. 대기(pending) : promise코드가 본격적으로 시작되기 전 상태
     console.log("시작함");
     // 2. 이행(fulfilled) :
-    /* resolve("코드 성공"); */
+    resolve(1);
     // 3. 거절(rejected) : resolve가 있으면 실행안됨
-    reject(new Error("데이터를 불러오지 못했습니다."));
+    /* reject(new Error("데이터를 불러오지 못했습니다.")); */
 })
     .then((res) => {
         //resolve에서 매개변수를 받을수 있다.
-        console.log(res);
+        return res * 3;
+    })
+    .then((result) => {
+        console.log(result);
     })
     .catch((err) => {
         //reject 에서 매개변수 받을수있따.
         console.log(err);
     });
+
+function counter(n) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let sum = n + 1;
+            console.log(sum);
+            if (n > 5) {
+                reject(new Error("5보다 클수 없습니다."));
+            } else {
+                resolve(sum);
+            }
+        });
+    });
+}
+
+counter(0).then((a) => counter(a));
