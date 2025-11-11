@@ -187,4 +187,31 @@ function counter(n) {
     });
 }
 
-counter(0).then((a) => counter(a));
+counter(0)
+    .then((a) => counter(a))
+    .then((a) => counter(a));
+
+function delay(ms) {
+    /* return new Promise((reslove, reject) => setTimeout(reslove, ms)); 성공 */
+    return new Promise((reslove, reject) => setTimeout(reject(new Error("에러입니다~")), ms)); /* 실패 */
+}
+
+function getBike() {
+    return new Promise((resolve) => resolve("오토바이"));
+}
+
+async function getBicycle() {
+    try {
+        await delay(2000);
+        return "자전거";
+    } catch (error) {
+        /* async크 await 에러가 발생했을 경우 언디파인드가 찍힐수있기때문에 에러쪽에선 throw 키워드를 사용하여 에러를 던진다. */
+        throw error;
+    }
+}
+
+getBike().then(console.log);
+getBicycle()
+    .then(console.log)
+    /* 에러가 발생할수 있기 때문에 catch 까지 한번에 적용해준다. */
+    .catch((error) => console.log(error));
