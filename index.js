@@ -215,3 +215,23 @@ getBicycle()
     .then(console.log)
     /* 에러가 발생할수 있기 때문에 catch 까지 한번에 적용해준다. */
     .catch((error) => console.log(error));
+
+const person = {
+    name: "철수",
+    age: 20,
+};
+
+console.log("name" in person); //key 가 존재하는지 확인하는법
+with (person) {
+    console.log(name);
+    console.log(age);
+}
+
+/* 생성자 함수를 생성할땐 첫글자는 대문자로 생성 */
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+const person1 = new Person("짱구", 30);
+console.log(person1.age);
