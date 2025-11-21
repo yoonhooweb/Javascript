@@ -235,3 +235,15 @@ function Person(name, age) {
 
 const person1 = new Person("짱구", 30);
 console.log(person1.age);
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.introduce = function () {
+        return `Hello, My Name is ${this.name}, im ${this.age} years old.`;
+    };
+}
+
+const person2 = new Person("yoonhoo", 23);
+
+console.log(person2.introduce());
