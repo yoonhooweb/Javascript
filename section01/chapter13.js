@@ -13,7 +13,7 @@ function repeat(count, callback) {
         callback(idx);
     }
 }
-
+/* value 값은 callback 에서 넘어온 인자를 사용한다. */
 repeat(5, (value) => {
     console.log(value);
 });
